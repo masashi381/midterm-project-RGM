@@ -107,6 +107,12 @@ html {
 }
 .masa .currentWeather {
   margin: 10px 10px 0;
+  position: relative;
+}
+.masa .currentWeather .my-style {
+  position: absolute;
+  top: 1px;
+  right: 250px;
 }
 .masa .currentWeather .cityName {
   text-align: center;

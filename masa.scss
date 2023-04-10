@@ -105,6 +105,12 @@ html{font-size: 62.5%;}
   }
   .currentWeather{
     margin: 10px 10px 0;
+    position: relative;
+    .my-style{
+      position: absolute;
+      top: 1px;
+      right: 250px;
+    }
     .cityName{
       text-align: center;
       margin-bottom: 5px;
