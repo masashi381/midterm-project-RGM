@@ -16,7 +16,7 @@
       <select name="favorite-city" id="favoriteCity">
         <option value="favorite-cities">Favorite cities</option>
       </select>
-      <input type="search" id="citySearch" placeholder="Search Bar (cities)">
+      <input id="autocomplete" type="text" placeholder="Search Bar (cities)">
     </div>
     <div class="currentWeather">
       <i class="far fa-star my-style"></i>
@@ -34,8 +34,8 @@
   <script type="text/javascript" src="gustvo.js"></script>
   <script type="text/javascript" src="rafa.js"></script>
   <script type="text/javascript" src="masa.js"></script>
-  <script async
-    src="https://maps.googleapis.com/maps/api/js?key=AIzaSyB9c8aBIlPK9FG-futrxMEotrRgtPh8psY&libraries=places&callback=initMap">
-</script>
+  <script 
+  src="https://maps.googleapis.com/maps/api/js?key=AIzaSyB9c8aBIlPK9FG-futrxMEotrRgtPh8psY&libraries=places&callback=initAutocomplete">
+  </script>
 </body>
 </html>
