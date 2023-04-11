@@ -1,3 +1,4 @@
+
 let autocomplete;
 function initAutocomplete() {
   autocomplete = new google.maps.places.Autocomplete(
@@ -19,3 +20,4 @@ function onPlaceChanged() {
     document.getElementById('details').interHTML = place.name;
   }
 }
+
