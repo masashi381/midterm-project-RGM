@@ -1,0 +1,45 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;500&display=swap');
+
+.date {
+  align-items: center;
+  color: purple;
+}
+
+.svg {
+  width: 40px;
+  margin-left: 25px;
+}
+
+.wSVG {
+  width: 15px;
+}
+
+.line {
+  display: flex;
+  flex-direction: row;
+  margin-left: 25px;
+}
+
+#forecast {
+  font-family: 'Roboto', sans-serif;
+  font-size: 1.4rem;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  margin: 5px;
+  flex-wrap: nowrap;
+  overflow-x: auto;
+  -webkit-overflow-scrolling: touch;
+}
+
+.fivedaysforecast {
+  /* margin-right: 144px;
+  margin-left: 144px; */
+  margin-top: 60px;
+}
+
+.border {
+  margin-right: 139px;
+  margin-left: 139px;
+  border: 1px solid rgba(0,0,0,0.225);
+}

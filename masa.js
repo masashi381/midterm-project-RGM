@@ -68,3 +68,30 @@ clicked.addEventListener('click', () => {
     localStorage.setItem(key, json);
   }
 });
+=======
+
+window.onload = function() {
+  navigator.geolocation.getCurrentPosition(successCallback);
+};
+
+function successCallback(position){
+  let latitude = position.coords.latitude;
+  let longitude = position.coords.longitude;
+  let latLngInput = new google.maps.LatLng(latitude, longitude);
+  let geocoder = new google.maps.Geocoder();
+  geocoder.geocode(
+    {
+      latLng: latLngInput
+    },
+    function(results, status) {
+      let address = "";
+      if(status == google.maps.GeocoderStatus.OK) {
+        address = results[0].formatted_address;
+      } else if(status == google.maps.GeocoderStatus.ZERO_RESULTS){
+        alert("I couldn't find your address")
+      }
+      document.getElementById('cityName').innerText = address;
+    }
+  );
+}
+
