@@ -50,8 +50,9 @@ function successCallback(position){
 //リクエスト時のクエリパラメータ
 const query_params = new URLSearchParams({ 
   appid: "6189e8e30fbb318244f5ca5b9d7a449f", 
-  q: "TOKYO",
-  lang:"eg" 
+  q: "Vancouver",
+  lang:"en", 
+  exclude: "current",
 });
 
 //APIリクエスト
