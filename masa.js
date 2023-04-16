@@ -47,3 +47,18 @@ function successCallback(position){
   );
 }
 
+//リクエスト時のクエリパラメータ
+const query_params = new URLSearchParams({ 
+  appid: "6189e8e30fbb318244f5ca5b9d7a449f", 
+  q: "TOKYO",
+  lang:"eg" 
+});
+
+//APIリクエスト
+fetch("https://api.openweathermap.org/data/2.5/weather?" + query_params)
+.then(response => {
+  return response.json()
+})
+.then(data => {
+  console.log(data.weather)
+})
