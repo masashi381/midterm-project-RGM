@@ -1,3 +1,4 @@
+@import url("https://fonts.googleapis.com/css2?family=Roboto:wght@400;500&display=swap");
 html, body, div, span, object, iframe,
 h1, h2, h3, h4, h5, h6, p, blockquote, pre,
 abbr, address, cite, code,
@@ -116,9 +117,23 @@ html {
 }
 .masa .currentWeather #cityName {
   text-align: center;
+  font-family: "Roboto", sans-serif;
+  font-size: 1.8rem;
   margin-bottom: 5px;
 }
-.masa .currentWeather .temp {
+.masa .currentWeather #currentWeather-temp {
   text-align: center;
+  margin-bottom: 5px;
+}
+.masa .currentWeather #weatherinfo .weatherType {
+  text-align: center;
+  font-family: "Roboto", sans-serif;
+  font-size: 1.4rem;
+  margin-bottom: 5px;
+}
+.masa .currentWeather #weatherinfo .weatherDetail {
+  text-align: center;
+  font-family: "Roboto", sans-serif;
+  font-size: 1.4rem;
   margin-bottom: 5px;
 }/*# sourceMappingURL=masa.css.map */
