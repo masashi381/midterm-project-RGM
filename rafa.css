@@ -1,1 +1,34 @@
-/*# sourceMappingURL=rafa.css.map */
+.rafa .c3-hoursgap {
+  border: 1px solid #ccc;
+  padding: 10px;
+  display: flex;
+  /* flex-wrap: wrap; */
+  justify-content: space-between;
+  max-width: 1440px;
+  align-items: flex-end;
+  flex-direction: row;
+  overflow: auto;
+}
+
+.rafa .weather-container {
+  border: 1px solid #ccc;
+  padding: 5px;
+  display: inline-block;
+  margin: 2px;
+  width: calc(12.5% - 22px);
+  height: 100px;
+  vertical-align: middle;
+  text-align: center;
+  flex-shrink: 0;
+}
+
+@media screen and (max-width: 375px) {
+  .rafa .c3-hoursgap {
+    flex-direction: column;
+    align-items: center;
+    max-width: 100%;
+  }
+  .rafa .weather-container {
+    width: 100%;
+  }
+}/*# sourceMappingURL=rafa.css.map */
