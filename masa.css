@@ -115,6 +115,9 @@ html {
   top: 1px;
   right: 250px;
 }
+.masa .currentWeather .color {
+  background-color: yellow;
+}
 .masa .currentWeather #cityName {
   text-align: center;
   font-family: "Roboto", sans-serif;

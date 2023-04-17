@@ -40,6 +40,10 @@ clicked.addEventListener("click", () => {
     const json = JSON.stringify(addSelect);
     localStorage.setItem(key, json);
   }
+  clicked.classList.add("color");
+});
+clicked.removeEventListener("click", () =>{
+  clicked.classList.remove("color");
 });
 
 const geograph = new URLSearchParams({
@@ -58,7 +62,7 @@ fetch("http://api.openweathermap.org/geo/1.0/direct?" + geograph)
 })
 
 
-//リクエスト時のクエリパラメータ
+//parammeter of API request 
 const query_params = new URLSearchParams({ 
   appid: "6189e8e30fbb318244f5ca5b9d7a449f", 
   q: "vancouver",
@@ -67,7 +71,7 @@ const query_params = new URLSearchParams({
   units: "metric",
 });
 
-//APIリクエスト
+//APIrequest
 fetch("https://api.openweathermap.org/data/2.5/weather?" + query_params)
 .then(response => {
   return response.json();
