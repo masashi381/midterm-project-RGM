@@ -1,7 +1,8 @@
 @import url("https://fonts.googleapis.com/css2?family=Roboto:wght@400;500&display=swap");
 * {
-  font-family: 'Roboto', sans-serif;
+  font-family: "Roboto", sans-serif;
 }
+
 .date {
   margin: 10px;
 }
@@ -57,7 +58,7 @@
   margin-left: 139px;
   border: 2px solid rgba(0, 0, 0, 0.525);
   border-radius: 10px;
-}/*# sourceMappingURL=gustvo.css.map */
+}
 
 .card {
   border: 1px solid rgba(0, 0, 0, 0.225);
@@ -67,4 +68,4 @@
   display: flex;
   flex-direction: column;
   justify-content: center;
-}
+}/*# sourceMappingURL=gustvo.css.map */
