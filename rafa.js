@@ -1,5 +1,7 @@
-const url = "https://api.openweathermap.org/data/2.5/forecast?lat={lat}&lon={lon}&appid={API key}"
-
+const url = "https://api.openweathermap.org/data/2.5/forecast?lat={lat}&lon={lon}&appid={apikey}"
+const latitude = "49.246292";
+const longitude = "-123.116226"
+const APIKey = "ff3523e635ffd098e66980c521a7d050"
 fetch (url)
     .then (response => response.json())
     .then (data => {
