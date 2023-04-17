@@ -1,13 +1,27 @@
-@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;500&display=swap');
-
+@import url("https://fonts.googleapis.com/css2?family=Roboto:wght@400;500&display=swap");
+* {
+  font-family: 'Roboto', sans-serif;
+}
 .date {
-  align-items: center;
-  color: purple;
+  margin: 10px;
 }
 
-.svg {
+.svgTemp {
   width: 40px;
-  margin-left: 25px;
+  margin: 0 auto;
+  position: relative;
+}
+
+.svgRain {
+  width: 40px;
+}
+
+.temp {
+  margin: 0;
+  position: absolute;
+  top: 28%;
+  margin-left: 4.4%;
+  transform: translate(-50%, -50%);
 }
 
 .wSVG {
@@ -17,11 +31,11 @@
 .line {
   display: flex;
   flex-direction: row;
-  margin-left: 25px;
+  margin-left: 45px;
 }
 
 #forecast {
-  font-family: 'Roboto', sans-serif;
+  font-family: "Roboto", sans-serif;
   font-size: 1.4rem;
   display: flex;
   flex-direction: row;
@@ -41,5 +55,16 @@
 .border {
   margin-right: 139px;
   margin-left: 139px;
-  border: 1px solid rgba(0,0,0,0.225);
+  border: 2px solid rgba(0, 0, 0, 0.525);
+  border-radius: 10px;
+}
+
+.card {
+  border: 1px solid rgba(0, 0, 0, 0.225);
+  border-radius: 10px;
+  text-align: center;
+  margin: 10px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
 }
