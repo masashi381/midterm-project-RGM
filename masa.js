@@ -2,64 +2,37 @@
 let autocomplete;
 function initAutocomplete() {
   autocomplete = new google.maps.places.Autocomplete(
-  document.getElementById('autocomplete'),
+  document.getElementById("autocomplete"),
   {
     types: ["(cities)"],
-    fields: ['place_id', 'geometry', 'name']
+    fields: ["place_id", "geometry", "name"]
   });
-  // console.log("initAutocomplete" + autocomplete)
-  autocomplete.addListener('place_changed', onPlaceChanged);
+  autocomplete.addListener("place_changed", onPlaceChanged);
 }
-// const takeCityName = document.getElementById('autocomplete');
-// console.log("test");
-// takeCityName.addEventListener('change', onPlaceChanged);
 function onPlaceChanged() {
-  // console.log("test2");
   if(autocomplete != undefined){
     let place = autocomplete.getPlace();
     if(!place.geometry) {
       // User did not select a prediction: reset the input field
-      document.getElementById('autocomplete').Placeholder = 'Enter a place';
+      document.getElementById("autocomplete").Placeholder = "Enter a place";
     } else {
       // Display details about the valid place
-      document.getElementById('cityName').innerText = place.name;
+      document.getElementById("cityName").innerText = place.name;
+      query_params.q = place.name;
+      console.log(query_params)
     }
   }
 }
 
-const clicked = document.getElementById('star');
-clicked.addEventListener('click', () => {
-  // const select = document.getElementById('favoriteCity');
-  // const addOption = document.createElement('option');
-  // addOption.textContent = document.getElementById('cityName').innerText;
-  // select.append(addOption);
-  // //local storage
-  // const key = 'city';
-  // let favoriteArr = [];
-  // for(let i = 1; i < select.children.length; i++){
-  //   favoriteArr.push(select.children[i].textContent);
-  // }
-  //   const getJson = localStorage.getItem(key);
-  //   const parsedCity = JSON.parse(getJson);
-  //   if(parsedCity == null){
-  //     addCity = new Array(favoriteArr);
-  //     const json = JSON.stringify(favoriteArr);
-  //     localStorage.setItem(key, json);
-  //   } else{
-  //     if(parsedCity.indexOf(favoriteArr) == -1){
-  //       parsedCity.push(favoriteArr);
-  //       const json = JSON.stringify(favoriteArr);
-  //       localStorage.setItem(key, json);
-  //     }
-  //   }
-  const select = document.getElementById('favoriteCity');
-  const addOption = document.createElement('option');
+const clicked = document.getElementById("star");
+clicked.addEventListener("click", () => {
+  const select = document.getElementById("favoriteCity");
+  const addOption = document.createElement("option");
   let addSelect = [];
-  for(let i = 0; i < select.children.length; i++){ 
+  for(let i = 1; i < select.children.length; i++){ 
     addSelect.push(select.children[i].textContent);
   }
-  addOption.textContent = document.getElementById('cityName').innerText;
-  // let newSelect = [];
+  addOption.textContent = document.getElementById("cityName").innerText;
   if(addSelect.indexOf(addOption.textContent) == -1){   
     select.append(addOption);
     const key = 'city';
@@ -67,31 +40,55 @@ clicked.addEventListener('click', () => {
     const json = JSON.stringify(addSelect);
     localStorage.setItem(key, json);
   }
+  clicked.classList.add("color");
 });
-=======
+clicked.removeEventListener("click", () =>{
+  clicked.classList.remove("color");
+});
 
-window.onload = function() {
-  navigator.geolocation.getCurrentPosition(successCallback);
-};
+const geograph = new URLSearchParams({
+  appid:"6189e8e30fbb318244f5ca5b9d7a449f",
+  q: "vancouver",
+}); 
 
-function successCallback(position){
-  let latitude = position.coords.latitude;
-  let longitude = position.coords.longitude;
-  let latLngInput = new google.maps.LatLng(latitude, longitude);
-  let geocoder = new google.maps.Geocoder();
-  geocoder.geocode(
-    {
-      latLng: latLngInput
-    },
-    function(results, status) {
-      let address = "";
-      if(status == google.maps.GeocoderStatus.OK) {
-        address = results[0].formatted_address;
-      } else if(status == google.maps.GeocoderStatus.ZERO_RESULTS){
-        alert("I couldn't find your address")
-      }
-      document.getElementById('cityName').innerText = address;
-    }
-  );
-}
+fetch("http://api.openweathermap.org/geo/1.0/direct?" + geograph)
+.then(response => {
+  return response.json();
+})
+.then(data => {
+  const location = data[0].name;
+  const place = document.getElementById("cityName");
+  place.innerText = location;
+})
 
+
+//parammeter of API request 
+const query_params = new URLSearchParams({ 
+  appid: "6189e8e30fbb318244f5ca5b9d7a449f", 
+  q: "vancouver",
+  lang:"en", 
+  exclude: "current",
+  units: "metric",
+});
+
+//APIrequest
+fetch("https://api.openweathermap.org/data/2.5/weather?" + query_params)
+.then(response => {
+  return response.json();
+})
+.then(data => {
+  const weather = data.weather[0].main;
+  const description = data.weather[0].description;
+  const temperature = data.main.temp; 
+  const currentWeather_temp = document.getElementById("currentWeather-temp");
+  currentWeather_temp.innerText = temperature;
+  const weather_info = document.getElementById("weatherinfo")
+  const addInfo = document.createElement("h2");
+  addInfo.classList.add("weatherType");
+  addInfo.innerText = weather;
+  weather_info.append(addInfo);
+  const addDescription = document.createElement("P");
+  addDescription.classList.add("weatherDetail");
+  addDescription.innerText = description;
+  weather_info.append(addDescription);
+})
